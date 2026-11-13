@@ -6,85 +6,84 @@
 <title>职场修罗场测试</title>
 <meta property="og:title" content="职场修罗场 · 从入职新人到晋升终局，50幕13结局">
 <style>
-:root{--bg:#1F2A44;--paper:#27344f;--ink:#EDEFF3;--brand:#C0392B;--light:#F5F5F3;--line:#34425f;--muted:#8FA0BC;}
+:root{--bg:#F5F8FC;--paper:#FFFFFF;--ink:#16243D;--brand:#2F6BDC;--die:#E0573E;--line:#DCE4F2;--muted:#8FA0BC;}
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;-webkit-font-smoothing:antialiased;}
 .wrap{max-width:520px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:0 18px;}
 .top{display:flex;justify-content:space-between;align-items:center;padding:16px 0 10px;position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line);}
 .brand{display:flex;align-items:center;gap:9px;}
-.sealbox{width:30px;height:30px;border:1.5px solid var(--brand);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:15px;border-radius:3px;font-weight:700;}
-.name{font-size:16px;letter-spacing:3px;}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--brand);display:inline-block;}
+.name{font-size:17px;letter-spacing:2px;font-weight:700;color:var(--ink);}
 .meta{font-size:12px;color:var(--muted);}
 .ep{letter-spacing:1px;}
 .hr{height:0;}
 .prog{position:sticky;top:53px;background:var(--bg);padding:8px 0 6px;z-index:4;}
 .bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
-.bar i{display:block;height:100%;background:var(--light);width:0;transition:width .3s;}
+.bar i{display:block;height:100%;background:var(--brand);width:0;transition:width .3s;}
 .dots{display:flex;gap:5px;justify-content:center;margin-top:6px;}
 .dots i{width:6px;height:6px;border-radius:50%;background:var(--line);}
-.dots i.on{background:var(--light);}
+.dots i.on{background:var(--brand);}
 .cover,.chapter,.end{display:flex;flex-direction:column;justify-content:center;flex:1;padding:30px 0;}
 .cover{text-align:center;position:relative;overflow:hidden;}
-.wm{position:absolute;font-size:160px;color:rgba(192,57,43,.08);top:50%;left:50%;transform:translate(-50%,-50%);font-weight:700;pointer-events:none;letter-spacing:0;}
-.seal{display:inline-block;border:1px solid var(--brand);color:var(--brand);font-size:12px;letter-spacing:4px;padding:4px 10px;border-radius:2px;margin-bottom:18px;}
-.cover h1{font-size:34px;letter-spacing:8px;margin:6px 0 18px;font-weight:700;}
-.lead{font-size:14px;line-height:2;color:var(--ink);margin-bottom:20px;}
-.rulebox{font-size:12.5px;line-height:1.9;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:2px;padding:14px;text-align:left;color:#cdd6e6;}
-.rulebox b{color:var(--light);}
-.start{margin-top:22px;width:100%;border:1px solid var(--light);background:transparent;color:var(--light);border-radius:2px;padding:13px;font-size:15px;letter-spacing:6px;cursor:pointer;}
-.start:active{background:#2a3650;}
+.seal{display:inline-block;border:1px solid var(--brand);color:var(--brand);font-size:12px;letter-spacing:3px;padding:4px 10px;border-radius:4px;margin-bottom:18px;}
+.cover h1{font-size:32px;letter-spacing:4px;margin:6px 0 18px;font-weight:800;color:var(--ink);}
+.lead{font-size:14px;line-height:2;color:#33425c;margin-bottom:20px;}
+.rulebox{font-size:12.5px;line-height:1.95;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:8px;padding:14px;text-align:left;color:#33507e;}
+.rulebox b{color:var(--brand);}
+.start{margin-top:22px;width:100%;border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:8px;padding:13px;font-size:15px;letter-spacing:4px;cursor:pointer;}
+.start:active{background:#245fc4;}
 .chapter{text-align:center;}
-.frame{border:1px solid var(--line);border-radius:2px;padding:26px 20px;background:var(--paper);}
-.vol{font-size:13px;color:var(--brand);letter-spacing:6px;margin-bottom:10px;}
-.chapter h2{font-size:24px;letter-spacing:6px;margin:0 0 14px;font-weight:700;}
-.ci{font-size:13.5px;line-height:1.95;color:#cdd6e6;text-align:left;}
-.go{margin-top:22px;width:100%;border:1px solid var(--light);background:transparent;color:var(--light);border-radius:2px;padding:12px;font-size:14px;letter-spacing:4px;cursor:pointer;}
-.go:active{background:#2a3650;}
-.card{border:1px solid var(--line);border-radius:2px;background:var(--paper);padding:18px;margin-bottom:16px;}
-.where{font-size:12px;color:var(--brand);letter-spacing:2px;margin-bottom:10px;}
-.story{font-size:14.5px;line-height:1.95;color:var(--ink);margin:0;}
+.frame{border:1px solid var(--line);border-radius:12px;padding:26px 20px;background:var(--paper);box-shadow:0 4px 16px rgba(47,107,220,.07);}
+.vol{font-size:13px;color:var(--brand);letter-spacing:3px;margin-bottom:10px;font-weight:700;}
+.chapter h2{font-size:24px;letter-spacing:2px;margin:0 0 14px;font-weight:800;color:var(--ink);}
+.ci{font-size:13.5px;line-height:1.95;color:#33507e;text-align:left;}
+.go{margin-top:22px;width:100%;border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:8px;padding:12px;font-size:14px;letter-spacing:3px;cursor:pointer;}
+.go:active{background:#245fc4;}
+.card{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:18px;margin-bottom:16px;box-shadow:0 4px 16px rgba(47,107,220,.05);}
+.where{font-size:12px;color:var(--brand);letter-spacing:1px;margin-bottom:10px;font-weight:600;}
+.story{font-size:14.5px;line-height:1.95;color:#2a3b57;margin:0;}
 #opts{display:flex;flex-direction:column;gap:10px;}
-.opt{width:100%;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:2px;padding:14px 16px;font-size:14px;line-height:1.7;text-align:left;cursor:pointer;font-family:inherit;}
-.opt:active{background:#2c3a58;border-color:var(--light);}
+.opt{width:100%;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;text-align:left;cursor:pointer;font-family:inherit;transition:border-color .15s,background .15s;}
+.opt:active{background:#EAF1FD;border-color:var(--brand);}
 .end{text-align:center;}
 .endline{height:1px;background:var(--line);margin-bottom:20px;}
-.tag{font-size:12px;color:var(--muted);letter-spacing:6px;}
-.big{font-size:26px;letter-spacing:6px;margin:10px 0 16px;font-weight:700;color:var(--light);}
-.end.die .big{color:var(--brand);}
-.reason{font-size:14px;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:2px;padding:16px;text-align:left;margin:0 0 16px;line-height:1.95;color:var(--ink);}
+.tag{font-size:12px;color:var(--muted);letter-spacing:4px;}
+.big{font-size:26px;letter-spacing:2px;margin:10px 0 16px;font-weight:800;color:var(--brand);}
+.end.die .big{color:var(--die);}
+.reason{font-size:14px;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:8px;padding:16px;text-align:left;margin:0 0 16px;line-height:1.95;color:#2a3b57;}
+.end.die .reason{border-left-color:var(--die);}
 .end .share{font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.7;}
-.again{width:100%;border:1px solid var(--light);background:transparent;color:var(--light);border-radius:2px;padding:12px;font-size:14px;letter-spacing:3px;cursor:pointer;margin-bottom:10px;}
-.again:active{background:#2a3650;}
-.rech{width:100%;border:1px solid #4C5b7a;background:transparent;color:#9fb0cc;border-radius:2px;padding:11px;font-size:13px;letter-spacing:2px;cursor:pointer;}
-.rech:active{background:#2c3a58;}
-.toast{position:fixed;top:14%;left:50%;transform:translateX(-50%);background:var(--paper);border:1px solid var(--brand);color:#EDEFF3;padding:8px 22px;border-radius:2px;letter-spacing:4px;font-size:13px;z-index:99;pointer-events:none;opacity:0;animation:tst 1.9s ease forwards;}
+.again{width:100%;border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:8px;padding:12px;font-size:14px;letter-spacing:2px;cursor:pointer;margin-bottom:10px;}
+.again:active{background:#245fc4;}
+.rech{width:100%;border:1px solid var(--line);background:var(--paper);color:#6B7C99;border-radius:8px;padding:11px;font-size:13px;letter-spacing:1px;cursor:pointer;}
+.rech:active{background:#EAF1FD;}
+.toast{position:fixed;top:14%;left:50%;transform:translateX(-50%);background:var(--ink);border:1px solid var(--ink);color:#fff;padding:8px 22px;border-radius:8px;letter-spacing:4px;font-size:13px;z-index:99;pointer-events:none;opacity:0;animation:tst 1.9s ease forwards;}
 @keyframes tst{0%{opacity:0;transform:translate(-50%,-8px);}15%{opacity:1;transform:translate(-50%,0);}80%{opacity:1;transform:translate(-50%,0);}100%{opacity:0;transform:translate(-50%,0);}}
-.foot{margin-top:auto;padding:18px 0 max(18px,env(safe-area-inset-bottom));font-size:10px;color:#5d6c8a;text-align:center;letter-spacing:.5px;line-height:1.7;}
+.foot{margin-top:auto;padding:18px 0 max(18px,env(safe-area-inset-bottom));font-size:10px;color:#9aa7bd;text-align:center;letter-spacing:.5px;line-height:1.7;}
 .hide{display:none;}
 </style>
 </head>
 <body>
 <div class="wrap" id="wrap">
   <header class="top">
-    <div class="brand"><span class="sealbox">职</span><span class="name">职场修罗场</span></div>
+    <div class="brand"><span class="dot"></span><span class="name">职场修罗场</span></div>
     <div class="meta"><span class="ep" id="ep">第 0 步</span></div>
   </header>
   <div class="hr"></div>
   <div class="prog"><div class="bar"><i id="bar"></i></div><div class="dots" id="dots"></div></div>
 
   <section id="cover" class="cover">
-    <div class="wm">职</div>
     <div class="seal">职 场 · 修 罗 场</div>
     <h1>职场修罗场</h1>
     <div class="lead">工牌是你的盾，也是你的靶。<br>五十幕，幕幕皆局；<br>从入职第一天到晋升终局，每条路通向不同的结局。</div>
-    <div class="rulebox">🏢 你是刚入职的新人。故事分四卷：<b>入职当天 · 试用期转正 · 项目暴雷站队 · 晋升季终局</b>。每个选择都会<b>岔路</b>——有的通向不同结局，有的当场出局。共 13 种结局。含「重新开局」与「从本卷重来」。<br><br>⚠️ <b>免责声明</b>：本作纯属虚构的娱乐向趣味测评，所有公司、人物、情节均为虚构，不涉及任何真实企业、品牌或个人，不构成任何职场建议或预言。</div>
+    <div class="rulebox">🏢 你是刚入职的新人。故事分四个阶段：<b>入职当天 · 试用期转正 · 项目暴雷站队 · 晋升季终局</b>。每个选择都会<b>岔路</b>——有的通向不同结局，有的当场出局。共 13 种结局。含「重新开局」与「从本阶段重来」。<br><br>⚠️ <b>免责声明</b>：本作纯属虚构的娱乐向趣味测评，所有公司、人物、情节均为虚构，不涉及任何真实企业、品牌或个人，不构成任何职场建议或预言。</div>
     <button class="start" id="startBtn">入 局</button>
   </section>
 
   <section id="chapter" class="hide chapter">
     <div class="frame">
       <div class="vol" id="cVol"></div><h2 id="cTitle"></h2>
-      <p class="ci" id="cIntro"></p><button class="go" id="cGo">续 卷</button>
+      <p class="ci" id="cIntro"></p><button class="go" id="cGo">继 续</button>
     </div>
   </section>
 
@@ -98,7 +97,7 @@ html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"
     <span class="tag" id="endTag"></span><div class="big" id="endBig"></div>
     <div class="reason" id="endReason"></div><div class="share" id="endShare"></div>
     <button class="again" id="againBtn">↻ 重新开局</button>
-    <button class="rech" id="rechBtn">从本卷重来</button>
+    <button class="rech" id="rechBtn">从本阶段重来</button>
   </section>
 
   <div class="foot">本作纯属虚构的娱乐向趣味测评，情节、公司、人物均为虚构，不涉及任何真实企业与个人，不构成任何建议。</div>
@@ -110,10 +109,10 @@ const SAVE_KEY="work_save_v1";
 let step=0,prevV=0,volStart="n1",volStep=1,pending="";
 
 const VOLS=[null,
- ["卷 一","入 职 当 天","你拿着工牌走进写字楼。玻璃门后不是同事，是一群等着看你底牌的人。这一卷，从你坐下的第一分钟开始。"],
- ["卷 二","试 用 期 · 转 正","三个月试用期，考核表在你看不见的地方流转。你要在不站队、不出错、还得被看见之间，把转正拿到手。"],
- ["卷 三","项 目 暴 雷 · 站 队","你接了第一个大项目。它暴雷那天，背锅位和抢功位同时空出来。你要在部门权力的缝隙里，把自己安放好。"],
- ["卷 四","晋 升 季 · 终 局","晋升季到了。答辩、空降领导、35 岁节点——最后这几步，定的是你在这家公司是走是留，是上还是出。共 13 种结局。"]
+ ["STAGE 1","入职当天","你拿着工牌走进写字楼。玻璃门后不是同事，是一群等着看你底牌的人。这一阶段，从你坐下的第一分钟开始。"],
+ ["STAGE 2","试用期 · 转正","三个月试用期，考核表在你看不见的地方流转。你要在不站队、不出错、还得被看见之间，把转正拿到手。"],
+ ["STAGE 3","项目暴雷 · 站队","你接了第一个大项目。它暴雷那天，背锅位和抢功位同时空出来。你要在部门权力的缝隙里，把自己安放好。"],
+ ["STAGE 4","晋升季 · 终局","晋升季到了。答辩、空降领导、35 岁节点——最后这几步，定的是你在这家公司是走是留，是上还是出。共 13 种结局。"]
 ];
 
 const NODES={
