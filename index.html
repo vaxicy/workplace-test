@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>职场修罗场测试</title>
+<meta property="og:title" content="职场修罗场 · 从入职新人到晋升终局，50幕13结局">
+<style>
+:root{--bg:#1F2A44;--paper:#27344f;--ink:#EDEFF3;--brand:#C0392B;--light:#F5F5F3;--line:#34425f;--muted:#8FA0BC;}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:520px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:0 18px;}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0 10px;position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line);}
+.brand{display:flex;align-items:center;gap:9px;}
+.sealbox{width:30px;height:30px;border:1.5px solid var(--brand);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:15px;border-radius:3px;font-weight:700;}
+.name{font-size:16px;letter-spacing:3px;}
+.meta{font-size:12px;color:var(--muted);}
+.ep{letter-spacing:1px;}
+.hr{height:0;}
+.prog{position:sticky;top:53px;background:var(--bg);padding:8px 0 6px;z-index:4;}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
+.bar i{display:block;height:100%;background:var(--light);width:0;transition:width .3s;}
+.dots{display:flex;gap:5px;justify-content:center;margin-top:6px;}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--line);}
+.dots i.on{background:var(--light);}
+.cover,.chapter,.end{display:flex;flex-direction:column;justify-content:center;flex:1;padding:30px 0;}
+.cover{text-align:center;position:relative;overflow:hidden;}
+.wm{position:absolute;font-size:160px;color:rgba(192,57,43,.08);top:50%;left:50%;transform:translate(-50%,-50%);font-weight:700;pointer-events:none;letter-spacing:0;}
+.seal{display:inline-block;border:1px solid var(--brand);color:var(--brand);font-size:12px;letter-spacing:4px;padding:4px 10px;border-radius:2px;margin-bottom:18px;}
+.cover h1{font-size:34px;letter-spacing:8px;margin:6px 0 18px;font-weight:700;}
+.lead{font-size:14px;line-height:2;color:var(--ink);margin-bottom:20px;}
+.rulebox{font-size:12.5px;line-height:1.9;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:2px;padding:14px;text-align:left;color:#cdd6e6;}
+.rulebox b{color:var(--light);}
+.start{margin-top:22px;width:100%;border:1px solid var(--light);background:transparent;color:var(--light);border-radius:2px;padding:13px;font-size:15px;letter-spacing:6px;cursor:pointer;}
+.start:active{background:#2a3650;}
+.chapter{text-align:center;}
+.frame{border:1px solid var(--line);border-radius:2px;padding:26px 20px;background:var(--paper);}
+.vol{font-size:13px;color:var(--brand);letter-spacing:6px;margin-bottom:10px;}
+.chapter h2{font-size:24px;letter-spacing:6px;margin:0 0 14px;font-weight:700;}
+.ci{font-size:13.5px;line-height:1.95;color:#cdd6e6;text-align:left;}
+.go{margin-top:22px;width:100%;border:1px solid var(--light);background:transparent;color:var(--light);border-radius:2px;padding:12px;font-size:14px;letter-spacing:4px;cursor:pointer;}
+.go:active{background:#2a3650;}
+.card{border:1px solid var(--line);border-radius:2px;background:var(--paper);padding:18px;margin-bottom:16px;}
+.where{font-size:12px;color:var(--brand);letter-spacing:2px;margin-bottom:10px;}
+.story{font-size:14.5px;line-height:1.95;color:var(--ink);margin:0;}
+#opts{display:flex;flex-direction:column;gap:10px;}
+.opt{width:100%;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:2px;padding:14px 16px;font-size:14px;line-height:1.7;text-align:left;cursor:pointer;font-family:inherit;}
+.opt:active{background:#2c3a58;border-color:var(--light);}
+.end{text-align:center;}
+.endline{height:1px;background:var(--line);margin-bottom:20px;}
+.tag{font-size:12px;color:var(--muted);letter-spacing:6px;}
+.big{font-size:26px;letter-spacing:6px;margin:10px 0 16px;font-weight:700;color:var(--light);}
+.end.die .big{color:var(--brand);}
+.reason{font-size:14px;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:2px;padding:16px;text-align:left;margin:0 0 16px;line-height:1.95;color:var(--ink);}
+.end .share{font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.7;}
+.again{width:100%;border:1px solid var(--light);background:transparent;color:var(--light);border-radius:2px;padding:12px;font-size:14px;letter-spacing:3px;cursor:pointer;margin-bottom:10px;}
+.again:active{background:#2a3650;}
+.rech{width:100%;border:1px solid #4C5b7a;background:transparent;color:#9fb0cc;border-radius:2px;padding:11px;font-size:13px;letter-spacing:2px;cursor:pointer;}
+.rech:active{background:#2c3a58;}
+.toast{position:fixed;top:14%;left:50%;transform:translateX(-50%);background:var(--paper);border:1px solid var(--brand);color:#EDEFF3;padding:8px 22px;border-radius:2px;letter-spacing:4px;font-size:13px;z-index:99;pointer-events:none;opacity:0;animation:tst 1.9s ease forwards;}
+@keyframes tst{0%{opacity:0;transform:translate(-50%,-8px);}15%{opacity:1;transform:translate(-50%,0);}80%{opacity:1;transform:translate(-50%,0);}100%{opacity:0;transform:translate(-50%,0);}}
+.foot{margin-top:auto;padding:18px 0 max(18px,env(safe-area-inset-bottom));font-size:10px;color:#5d6c8a;text-align:center;letter-spacing:.5px;line-height:1.7;}
+.hide{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <header class="top">
+    <div class="brand"><span class="sealbox">职</span><span class="name">职场修罗场</span></div>
+    <div class="meta"><span class="ep" id="ep">第 0 步</span></div>
+  </header>
+  <div class="hr"></div>
+  <div class="prog"><div class="bar"><i id="bar"></i></div><div class="dots" id="dots"></div></div>
+
+  <section id="cover" class="cover">
+    <div class="wm">职</div>
+    <div class="seal">职 场 · 修 罗 场</div>
+    <h1>职场修罗场</h1>
+    <div class="lead">工牌是你的盾，也是你的靶。<br>五十幕，幕幕皆局；<br>从入职第一天到晋升终局，每条路通向不同的结局。</div>
+    <div class="rulebox">🏢 你是刚入职的新人。故事分四卷：<b>入职当天 · 试用期转正 · 项目暴雷站队 · 晋升季终局</b>。每个选择都会<b>岔路</b>——有的通向不同结局，有的当场出局。共 13 种结局。含「重新开局」与「从本卷重来」。<br><br>⚠️ <b>免责声明</b>：本作纯属虚构的娱乐向趣味测评，所有公司、人物、情节均为虚构，不涉及任何真实企业、品牌或个人，不构成任何职场建议或预言。</div>
+    <button class="start" id="startBtn">入 局</button>
+  </section>
+
+  <section id="chapter" class="hide chapter">
+    <div class="frame">
+      <div class="vol" id="cVol"></div><h2 id="cTitle"></h2>
+      <p class="ci" id="cIntro"></p><button class="go" id="cGo">续 卷</button>
+    </div>
+  </section>
+
+  <section id="scene" class="hide">
+    <div class="card"><div class="where" id="where"></div><p class="story" id="story"></p></div>
+    <div id="opts"></div>
+  </section>
+
+  <section id="end" class="hide end">
+    <div class="endline"></div>
+    <span class="tag" id="endTag"></span><div class="big" id="endBig"></div>
+    <div class="reason" id="endReason"></div><div class="share" id="endShare"></div>
+    <button class="again" id="againBtn">↻ 重新开局</button>
+    <button class="rech" id="rechBtn">从本卷重来</button>
+  </section>
+
+  <div class="foot">本作纯属虚构的娱乐向趣味测评，情节、公司、人物均为虚构，不涉及任何真实企业与个人，不构成任何建议。</div>
+</div>
+
+<script>
+const $=s=>document.getElementById(s);
+const SAVE_KEY="work_save_v1";
+let step=0,prevV=0,volStart="n1",volStep=1,pending="";
+
+const VOLS=[null,
+ ["卷 一","入 职 当 天","你拿着工牌走进写字楼。玻璃门后不是同事，是一群等着看你底牌的人。这一卷，从你坐下的第一分钟开始。"],
+ ["卷 二","试 用 期 · 转 正","三个月试用期，考核表在你看不见的地方流转。你要在不站队、不出错、还得被看见之间，把转正拿到手。"],
+ ["卷 三","项 目 暴 雷 · 站 队","你接了第一个大项目。它暴雷那天，背锅位和抢功位同时空出来。你要在部门权力的缝隙里，把自己安放好。"],
+ ["卷 四","晋 升 季 · 终 局","晋升季到了。答辩、空降领导、35 岁节点——最后这几步，定的是你在这家公司是走是留，是上还是出。共 13 种结局。"]
+];
+
+const NODES={
+  "n1": {
+    "v": 1,
+    "where": "晨 · 工位 · 入职",
+    "story": "你拿着工牌坐定，隔壁工位的老员工林哥立刻递来一杯奶茶：「以后就是一家人了，有啥不懂问我。」你笑笑接了。",
+    "o": [
+      {"t": "礼貌道谢，先把 onboarding 文档过一遍，不急着交心", "go": "n2"},
+      {"t": "当场跟他掏心窝，把上家公司的人和事都聊了一遍", "end": "E_BLAME"},
+      {"t": "跟着他一起吐槽新老板「画饼」", "end": "E_GUDU"}
+    ]
+  },
+  "n2": {
+    "v": 1,
+    "where": "午 · 部门群 · 匿名",
+    "story": "部门大群里有人匿名发了条「这加班文化迟早出问题」，顺手 @ 了你：「新人你也觉得吧？」",
+    "o": [
+      {"t": "不接这句，默默把 onboarding 任务往前推", "go": "n3"},
+      {"t": "顺着发了句「确实，我也快扛不住了」", "end": "E_GUDU"},
+      {"t": "私聊那个人想打听是谁在带节奏", "end": "E_BLAME"}
+    ]
+  },
+  "n3": {
+    "v": 1,
+    "where": "下午 · 导师 · 私活",
+    "story": "带你的导师「顺手」把一份标书甩给你：「小忙，帮我填下，算你学习。」可那是他个人的私活。",
+    "o": [
+      {"t": "婉拒但留余地：先把手头任务交付好，私活走正规流程再谈", "go": "n4"},
+      {"t": "一口应下，熬夜帮他做", "end": "E_OPTIMIZED"},
+      {"t": "直接当众拒绝，话说得有点硬", "end": "E_GUDU"}
+    ]
+  },
+  "n4": {
+    "v": 1,
+    "where": "傍晚 · 茶水间 · 旧识",
+    "story": "电梯里撞见上家公司的前同事，对方眼睛一亮：「哟，也跳这儿来了，以后多照应。」你想叙旧。",
+    "o": [
+      {"t": "点头寒暄，只说「刚来，还在熟悉」，不深聊", "go": "n5"},
+      {"t": "约了下班一起吃饭，把现部门的事聊了个遍", "end": "E_BLAME"},
+      {"t": "当场问对方「这边待遇怎么样、谁好谁坏」", "end": "E_GUDU"}
+    ]
+  },
+  "n5": {
+    "v": 1,
+    "where": "入职培训 · HR 表",
+    "story": "HR 发来一张「兴趣爱好 / 个人情况」表，说「随便填填，增进了解」。",
+    "o": [
+      {"t": "填得平常，不写软肋（单身与否、负债、副业一律模糊）", "go": "n6"},
+      {"t": "老实写了「正在备孕」「有房贷压力」", "end": "E_OPTIMIZED"},
+      {"t": "填了「在做自媒体副业，粉丝不少」", "end": "E_GUDU"}
+    ]
+  },
+  "n6": {
+    "v": 1,
+    "where": "周中 · 工位 · 抱怨",
+    "story": "同事阿杰凑过来压低声音：「咱主管就是个画饼大师，你别被忽悠。」想拉你同仇敌忾。",
+    "o": [
+      {"t": "笑笑没接话，继续敲键盘", "go": "n7"},
+      {"t": "顺着补了句「我也觉得他上次说的奖金悬」", "end": "E_BLAME"},
+      {"t": "转头就把这话「好心」转述给了另一个同事", "end": "E_GUDU"}
+    ]
+  },
+  "n7": {
+    "v": 1,
+    "where": "晚 · 办公室 · 表演加班",
+    "story": "下班点了，大家都不走，屏幕亮着却在刷手机——明显的「表演加班」。",
+    "o": [
+      {"t": "干完今天就走，不装，但走前同步了进度", "go": "n8"},
+      {"t": "故意留到最晚，发朋友圈「又是奋斗的一天」", "end": "E_OPTIMIZED"},
+      {"t": "当面戳穿「大家都别演了」，气氛凝固", "end": "E_GUDU"}
+    ]
+  },
+  "n8": {
+    "v": 1,
+    "where": "邮箱 · 钓鱼测试",
+    "story": "一封「全员必填：年度福利确认」的邮件飞来，点开要你输账号密码，域名看着不太对。",
+    "o": [
+      {"t": "不点链接，转发 IT 核验", "go": "n9"},
+      {"t": "直接填了工号和密码，图省事", "end": "E_OPTIMIZED"},
+      {"t": "在群里 @ 全员「快填，不然没福利」，带动一片人填", "end": "E_BLAME"}
+    ]
+  },
+  "n9": {
+    "v": 1,
+    "where": "午 · 借用账号",
+    "story": "林哥说「借你 OA 账号登一下，我这边权限没下来，就查个数据」。",
+    "o": [
+      {"t": "拒绝，建议他走临时权限申请", "go": "n10"},
+      {"t": "把密码发给了他", "end": "E_BLAME"},
+      {"t": "当众说「他账号归我管，你们别借」抢风头", "end": "E_GUDU"}
+    ]
+  },
+  "n10": {
+    "v": 1,
+    "where": "周会 · 背后议论",
+    "story": "午休你听见两个同事在背后说你是「关系户进来的」。",
+    "o": [
+      {"t": "不急着自证，用产出说话", "go": "n11"},
+      {"t": "冲过去对质，要他们拿出证据", "end": "E_GUDU"},
+      {"t": "找主管「澄清」自己不是关系户，反而坐实敏感", "end": "E_OPTIMIZED"}
+    ]
+  },
+  "n11": {
+    "v": 1,
+    "where": "周会 · 第一印象",
+    "story": "主管让你「说说对公司的第一印象」。",
+    "o": [
+      {"t": "讲一条具体的业务流程观察，不拍马屁也不diss", "go": "n12"},
+      {"t": "一顿彩虹屁，把主管夸上天", "end": "E_OPTIMIZED"},
+      {"t": "实话实说「节奏有点乱，流程不清晰」", "end": "E_GUDU"}
+    ]
+  },
+  "n12": {
+    "v": 1,
+    "where": "月末 · 顶班",
+    "story": "同事临时有事，让你「帮顶个班，回头请你吃饭」。",
+    "o": [
+      {"t": "按规矩走调班申请，不私下承诺", "go": "n13"},
+      {"t": "一口答应，后来顶班成了常态", "end": "E_OPTIMIZED"},
+      {"t": "当面拒绝得很难看，说「凭什么」", "end": "E_GUDU"}
+    ]
+  },
+  "n13": {
+    "v": 1,
+    "where": "月末 · 薪资试探",
+    "story": "主管闲聊般问你「上家月薪多少？我好给你定档。」",
+    "o": [
+      {"t": "模糊回应「和上家差不多，更看重这边成长」", "go": "n14"},
+      {"t": "如实报了精确数字，还说了奖金结构", "end": "E_OPTIMIZED"},
+      {"t": "反问他「您打算给我开多少」，把球踢回去太硬", "end": "E_GUDU"}
+    ]
+  },
+  "n14": {
+    "v": 2,
+    "where": "任务 · 边界",
+    "story": "转正后第一个任务，需求文档只有半页，主管说「你看着办，相信你」。",
+    "o": [
+      {"t": "先把范围和交付标准书面确认再动手", "go": "n15"},
+      {"t": "凭感觉闷头开干，怕问了显得不行", "end": "E_OPTIMIZED"},
+      {"t": "擅自扩大了范围，做了很多「我以为你要」的东西", "end": "E_BLAME"}
+    ]
+  },
+  "n15": {
+    "v": 2,
+    "where": "甩锅 · 棘手部分",
+    "story": "同事把项目里最棘手、最容易出错的模块「好心」转给你：「你能力强，这归你顺手。」",
+    "o": [
+      {"t": "接下但邮件留痕：范围、责任、时间点写清楚", "go": "n16"},
+      {"t": "二话不说全接，结果出问题算你的", "end": "E_BLAME"},
+      {"t": "当众甩回给他，闹得难看", "end": "E_GUDU"}
+    ]
+  },
+  "n16": {
+    "v": 2,
+    "where": "抢功 · 改稿",
+    "story": "你的方案被同组老王「微调」后，原封不动当成他的汇报讲了。",
+    "o": [
+      {"t": "下次同步留时间戳和版本，逐步沉淀证据", "go": "n17"},
+      {"t": "当场拍桌子揭穿，会议炸锅", "end": "E_GUDU"},
+      {"t": "忍了，心想「下次再说」——下次又忍了", "end": "E_OPTIMIZED"}
+    ]
+  },
+  "n17": {
+    "v": 2,
+    "where": "考核 · 自我鉴定",
+    "story": "试用期考核，要写「自我鉴定」。",
+    "o": [
+      {"t": "用数据和交付物说话，不夸大也不谦虚过头", "go": "n18"},
+      {"t": "把团队成果全写成自己的", "end": "E_BLAME"},
+      {"t": "写得太谦虚，像是没干啥", "end": "E_OPTIMIZED"}
+    ]
+  },
+  "n18": {
+    "v": 2,
+    "where": "漏洞 · 越级",
+    "story": "你发现报销流程有漏洞，金额不小。",
+    "o": [
+      {"t": "先报直属主管，走内部修正", "go": "n19"},
+      {"t": "直接发邮件给 CEO 邀功「我发现大问题」", "end": "E_GUDU"},
+      {"t": "私下跟几个同事散播「公司账目有问题」", "end": "E_BLAME"}
+    ]
+  },
+  "n19": {
+    "v": 2,
+    "where": "同期 · 套话",
+    "story": "同期入职的小张频繁约你吃饭，席间总拐着弯问你手里的客户资源。",
+    "o": [
+      {"t": "保持礼貌距离，不交底", "go": "n20"},
+      {"t": "酒过三巡把客户名单透了个底朝天", "end": "E_BLAME"},
+      {"t": "当面点破「你是在套我话吧」，关系破裂", "end": "E_GUDU"}
+    ]
+  },
+  "n20": {
+    "v": 2,
+    "where": "署名 · 没你",
+    "story": "一个大项目你出了力，庆功邮件的署名列表里没有你。",
+    "o": [
+      {"t": "用周报和复盘文档沉淀自己的功劳，下次提前约定署名", "go": "n21"},
+      {"t": "找主管吵「凭什么没我」，被记「计较」", "end": "E_GUDU"},
+      {"t": "假装不在意，从此划水", "end": "E_OPTIMIZED"}
+    ]
+  },
+  "n21": {
+    "v": 2,
+    "where": "站队 · 暗示",
+    "story": "主管半开玩笑：「小张他们那拨人你少来往，咱自己人。」明示站队。",
+    "o": [
+      {"t": "表态「我专心做业务，不掺和派系」", "go": "n22"},
+      {"t": "顺势表忠，抱住了这条大腿", "end": "E_LIANZUO"},
+      {"t": "反呛「我凭什么跟你」，把主管得罪死", "end": "E_GUDU"}
+    ]
+  },
+  "n22": {
+    "v": 2,
+    "where": "传言 · 裁员",
+    "story": "办公室流传「月底要裁一波，名单在路上」。",
+    "o": [
+      {"t": "不信谣不传谣，照常交付", "go": "n23"},
+      {"t": "四处打探名单，焦虑到工作出错", "end": "E_OPTIMIZED"},
+      {"t": "跟着转发「要裁就裁我，随时走」的狠话", "end": "E_GUDU"}
+    ]
+  },
+  "n23": {
+    "v": 2,
+    "where": "答辩 · 借资料",
+    "story": "转正答辩前，同事借走你的核心资料「参考一下」，迟迟不还。",
+    "o": [
+      {"t": "留好底稿，另行准备一份", "go": "n24"},
+      {"t": "干等他归还，答辩当天资料不全", "end": "E_OPTIMIZED"},
+      {"t": "冲去他工位翻箱倒柜要，闹上 HR", "end": "E_GUDU"}
+    ]
+  },
+  "n24": {
+    "v": 2,
+    "where": "答辩 · 缺点",
+    "story": "答辩被问「你最大的缺点是什么？」",
+    "o": [
+      {"t": "答一个真实但不致命的，并说已在改", "go": "n25"},
+      {"t": "背套路「我太追求完美」，被评委秒判油腻", "end": "E_OPTIMIZED"},
+      {"t": "老实说「我抗压差」，直接扣印象分", "end": "E_GUDU"}
+    ]
+  },
+  "n25": {
+    "v": 2,
+    "where": "答辩后 · 观察期",
+    "story": "主管说「整体不错，再观察一个月」。",
+    "o": [
+      {"t": "不慌，继续稳定交付", "go": "n26"},
+      {"t": "松口气开始摸鱼，观察期表现滑坡", "end": "E_OPTIMIZED"},
+      {"t": "质问「凭什么还观察」，暴露急躁", "end": "E_GUDU"}
+    ]
+  },
+  "n26": {
+    "v": 2,
+    "where": "转正 · 通知",
+    "story": "转正邮件下来了。主管拍肩：「好好干，后面有你位置。」",
+    "o": [
+      {"t": "沉稳道谢，继续把手头项目做扎实", "go": "n27"},
+      {"t": "立刻四处宣告「我转正了」，招人眼红", "end": "E_GUDU"},
+      {"t": "觉得稳了，开始挑活", "end": "E_OPTIMIZED"}
+    ]
+  },
+  "n27": {
+    "v": 3,
+    "where": "大项目 · 接手",
+    "story": "你被点名负责今年第一个大项目。兴奋之余，合作方含糊其辞。",
+    "o": [
+      {"t": "拉清单对齐目标、权责、节点，不盲目乐观", "go": "n28"},
+      {"t": "一口包揽，把「应该没问题」挂在嘴边", "end": "E_BLAME"},
+      {"t": "为了显得靠谱，承诺了做不到的 deadline", "end": "E_BLAME"}
+    ]
+  },
+  "n28": {
+    "v": 3,
+    "where": "变更 · 需求",
+    "story": "中期合作方临时大改需求，口头说「先这样，回头补流程」。",
+    "o": [
+      {"t": "书面确认变更，再动", "go": "n29"},
+      {"t": "先改了再说，回头流程没补，责任算不清", "end": "E_BLAME"},
+      {"t": "直接拒绝合作方，把关系搞僵", "end": "E_GUDU"}
+    ]
+  },
+  "n29": {
+    "v": 3,
+    "where": "暴雷 · 追责",
+    "story": "项目暴雷，会上主管目光扫过：「这锅，总得有人背。」",
+    "o": [
+      {"t": "拿出全程记录（邮件、时间线）自证分工", "go": "n30"},
+      {"t": "慌乱中把合作方和同事一起咬出来", "end": "E_LIANZUO"},
+      {"t": "当场沉默，等于默认", "end": "E_BLAME"}
+    ]
+  },
+  "n30": {
+    "v": 3,
+    "where": "私了 · 背锅",
+    "story": "想让你背锅的同事私下找你：「这事你认了，好处少不了你的。」",
+    "o": [
+      {"t": "拒绝，走公开复盘，把事实摆上桌", "go": "n31"},
+      {"t": "收了「好处」认了锅，从此被拿捏", "end": "E_BLAME"},
+      {"t": "把私聊录音发出去「自证清白」，反成告密者", "end": "E_GUDU"}
+    ]
+  },
+  "n31": {
+    "v": 3,
+    "where": "空降 · 新领导",
+    "story": "部门空降一位新领导，风格迥异，第一句话是「我不看苦劳，看结果」。",
+    "o": [
+      {"t": "先观察再适应，不急着表忠", "go": "n32"},
+      {"t": "第一天就递「投名状」表忠心", "end": "E_LIANZUO"},
+      {"t": "当面质疑「您这套在我们这行行不通」", "end": "E_PURGE"}
+    ]
+  },
+  "n32": {
+    "v": 3,
+    "where": "重汇报 · 复盘",
+    "story": "新领导让你「把那个暴雷项目从头汇报一遍」。",
+    "o": [
+      {"t": "客观复盘，不甩锅也不抢功", "go": "n33"},
+      {"t": "把锅全甩给同事，显得自己无辜", "end": "E_LIANZUO"},
+      {"t": "把功劳全揽自己身上，显得没团队", "end": "E_GUDU"}
+    ]
+  },
+  "n33": {
+    "v": 3,
+    "where": "站队 · 两派",
+    "story": "部门暗流涌动，A 派和 B 派都来拉你。",
+    "o": [
+      {"t": "只站业务结果，不站人", "go": "n34"},
+      {"t": "押了 A 派，赌一把", "end": "E_LIANZUO"},
+      {"t": "两边都答应「我跟您」，成了墙头草", "end": "E_GUDU"}
+    ]
+  },
+  "n34": {
+    "v": 3,
+    "where": "抢功 · 澄清",
+    "story": "抢你功的同事在会上领赏，说得像全是他的。",
+    "o": [
+      {"t": "用时间线当场澄清，语气平稳", "go": "n35"},
+      {"t": "忍到会后写小作文匿名举报他", "end": "E_GUDU"},
+      {"t": "直接拍桌子骂，被请出会议室", "end": "E_GUDU"}
+    ]
+  },
+  "n35": {
+    "v": 3,
+    "where": "告密 · 上位",
+    "story": "一位「朋友式」同事悄悄说：「把对家那点事捅给领导，咱俩都能上。」",
+    "o": [
+      {"t": "拒绝，靠自己的交付往上走", "go": "n36"},
+      {"t": "真去告密，却被对家反咬「诬陷」，两头不讨好", "end": "E_GUDU"},
+      {"t": "把「朋友」的提议转手卖给了对家，两头套", "end": "E_LIANZUO"}
+    ]
+  },
+  "n36": {
+    "v": 3,
+    "where": "证据 · 对家",
+    "story": "你手里捏着对家派不利的证据。",
+    "o": [
+      {"t": "不主动递刀，关键时刻自保用", "go": "n37"},
+      {"t": "主动献给领导邀功，成了打手", "end": "E_GUDU"},
+      {"t": "拿证据去要挟对家换好处，反被录下", "end": "E_BLAME"}
+    ]
+  },
+  "n37": {
+    "v": 3,
+    "where": "末位 · 淘汰",
+    "story": "新领导搞「末位淘汰」，暗示名单「看谁最可有可无」。",
+    "o": [
+      {"t": "用业绩和不可替代性说话", "go": "n38"},
+      {"t": "疯狂表演加班刷存在感", "end": "E_OPTIMIZED"},
+      {"t": "公开反对制度，被记「不服管」", "end": "E_PURGE"}
+    ]
+  },
+  "n38": {
+    "v": 3,
+    "where": "举报 · 你",
+    "story": "有人匿名举报你「违规操作」。",
+    "o": [
+      {"t": "配合调查，留好所有合规证据", "go": "n39"},
+      {"t": "慌乱中删了聊天记录「怕说不清」", "end": "E_BLAME"},
+      {"t": "反手匿名举报对方，互相撕", "end": "E_GUDU"}
+    ]
+  },
+  "n39": {
+    "v": 3,
+    "where": "合并 · 二选一",
+    "story": "部门合并，两个主管只能留一个，你成了两边都要拉的人。",
+    "o": [
+      {"t": "不押宝，做好本分交付", "go": "n40"},
+      {"t": "提前押注赢家，输了被清算", "end": "E_LIANZUO"},
+      {"t": "谁都不得罪等于谁都得罪，被两边边缘化", "end": "E_GUDU"}
+    ]
+  },
+  "n40": {
+    "v": 4,
+    "where": "晋升季 · 启动",
+    "story": "晋升季启动，名额比人少。主管：「材料你自己申报，我不多说。」",
+    "o": [
+      {"t": "主动申报，准备扎实的业绩材料", "go": "n41"},
+      {"t": "等主管「主动推荐」，结果没等到", "end": "E_OPTIMIZED"},
+      {"t": "四处放话「我肯定能升」，树大招风", "end": "E_GUDU"}
+    ]
+  },
+  "n41": {
+    "v": 4,
+    "where": "答辩 · 35岁",
+    "story": "答辩抽题：「你怎么看 35 岁职场危机？」",
+    "o": [
+      {"t": "答价值在不可替代，不在年龄", "go": "n42"},
+      {"t": "顺杆爬说「我年轻有体力」，贬低资深同事", "end": "E_GUDU"},
+      {"t": "支支吾吾，显得没想过", "end": "E_OPTIMIZED"}
+    ]
+  },
+  "n42": {
+    "v": 4,
+    "where": "挖角 · 跳",
+    "story": "竞品公司挖你，让你「拿 offer 来谈条件」。",
+    "o": [
+      {"t": "不裸跳，先把现司条件和去留想清楚", "go": "n43"},
+      {"t": "拿着口头 offer 去逼现主管，被反将一军", "end": "E_PURGE"},
+      {"t": "直接签字入职竞品，现司把你之前的项目全收回", "end": "E_BLAME"}
+    ]
+  },
+  "n43": {
+    "v": 4,
+    "where": "优化 · 腾编",
+    "story": "主管想把你「优化」腾编制，话里话外暗示。",
+    "o": [
+      {"t": "用核心项目的不可替代性守住", "go": "n44"},
+      {"t": "主动「自愿离职」换补偿，等于认输", "end": "E_OPTIMIZED"},
+      {"t": "找大领导越级告主管，反被当成不稳定因素", "end": "E_GUDU"}
+    ]
+  },
+  "n44": {
+    "v": 4,
+    "where": "空降 · 站边",
+    "story": "大领导空降，单独问你：「你觉得现在这摊子，该站哪边？」",
+    "o": [
+      {"t": "站业务结果，不站人", "go": "n45"},
+      {"t": "趁机告了直属主管的状", "end": "E_GUDU"},
+      {"t": "表态跟大领导，押错宝后被清洗", "end": "E_PURGE"}
+    ]
+  },
+  "n45": {
+    "v": 4,
+    "where": "功高 · 震主",
+    "story": "你连拿两个大单，风头盖过主管，他开始「调整」你的权限。",
+    "o": [
+      {"t": "主动分功、降姿态，把主管推到前面", "go": "n46"},
+      {"t": "继续高调，觉得「公司离不开我」", "end": "E_ZHENGZU"},
+      {"t": "当面顶撞主管「这单没我早黄了」", "end": "E_GUDU"}
+    ]
+  },
+  "n46": {
+    "v": 4,
+    "where": "期权 · 绑定",
+    "story": "公司给你期权，但绑定三年，中途走作废。",
+    "o": [
+      {"t": "权衡职业与绑定，理性签或不签都留痕", "go": "n47"},
+      {"t": "为期权赌上全部，三年不敢动，被锁死", "end": "E_OPTIMIZED"},
+      {"t": "当众拒签还嘲讽「画饼」，得罪高层", "end": "E_GUDU"}
+    ]
+  },
+  "n47": {
+    "v": 4,
+    "where": "终局前夜 · 密信",
+    "story": "晋升名单出炉前夜，有人递密信：「咬死对手，位置就是你的。」",
+    "o": [
+      {"t": "原信退回，靠自己的材料等结果", "go": "n48"},
+      {"t": "收信夜半去见了那人，留下结党把柄", "end": "E_LIANZUO"},
+      {"t": "当众撕信骂人，把递信者得罪，自己也失了分", "end": "E_GUDU"}
+    ]
+  },
+  "n48": {
+    "v": 4,
+    "where": "最后一道关 · 选岗",
+    "story": "你过了答辩，面临最后选择：清要闲职还是油水肥缺。",
+    "o": [
+      {"t": "选稳健清要，把终局走完", "go": "n48b"},
+      {"t": "争肥缺，显得贪", "end": "E_ZHENGZU"},
+      {"t": "推辞太过，说「我不堪重任」", "end": "E_OPTIMIZED"}
+    ]
+  },
+  "n48b": {
+    "v": 4,
+    "where": "名单前夜 · 抉择",
+    "story": "名单前夜，你在工位整理材料。同年递来一封「内部消息」，说能为你美言于高管。",
+    "o": [
+      {"t": "原信退回，静坐等结果", "go": "n49"},
+      {"t": "收下密信，夜半依约去见其人，留下结党物证", "end": "E_LIANZUO"},
+      {"t": "当众撕信斥小人，反被寻由头清算", "end": "E_PURGE"}
+    ]
+  },
+  "n49": {
+    "v": 4,
+    "where": "终 局",
+    "story": "晋升名单公布。这一路的姿态，决定了你在这家公司的去向。",
+    "o": [
+      {"t": "谦退谨守，凭实力稳稳升到中层", "end": "E_MID"},
+      {"t": "才略过人，一路杀到核心决策层", "end": "E_CLEVEL"},
+      {"t": "看破职场，拿遣散费去创业单飞", "end": "E_STARTUP"},
+      {"t": "把对家扳倒自己上位，手段见不得光", "end": "E_INFORMER"},
+      {"t": "熬过所有画饼，平平淡淡混到退休", "end": "E_HUABING"},
+      {"t": "早就攒够底气，主动躺平保命不内卷", "end": "E_TANGBING"},
+      {"t": "期权兑现，财务自由挥一挥衣袖", "end": "E_EQUITY"}
+    ]
+  }
+};
+
+const END={
+ "E_MID":{type:"life",title:"稳 健 中 层",text:"你凭实力稳稳升到中层，不显山不露水，却谁也动不了你的位置。这个修罗场，你算是活明白了。全剧终。"},
+ "E_CLEVEL":{type:"life",title:"登 顶 C-LEVEL",text:"你一路杀到核心决策层，从被审视的新人成了制定规则的人。你读懂了这座写字楼里的全部暗语。全剧终。"},
+ "E_STARTUP":{type:"life",title:"创 业 单 飞",text:"你看透了打工的天花板，拿遣散费跳出去自己干。与其在别人的棋盘上当一枚子，不如自己画一张棋盘。全剧终。"},
+ "E_INFORMER":{type:"life",title:"告 密 上 位",text:"你把对家扳倒，踩着碎了一地的体面坐上了那个位置。上位了，只是深夜偶尔会想起，自己也曾被人这样对待过。全剧终。"},
+ "E_HUABING":{type:"life",title:"画 饼 熬 到 退 休",text:"你熬过了所有画饼与空许，平平淡淡混到了退休。没大富大贵，但也没在风暴里翻船。这已是最好的结局之一。全剧终。"},
+ "E_TANGBING":{type:"life",title:"躺 平 保 命",text:"你早早攒够了底气，主动退出内卷，躺得理直气壮。别人在修罗场里互砍，你在场外看戏。全剧终。"},
+ "E_EQUITY":{type:"life",title:"期 权 财 务 自 由",text:"期权兑现的那天，你算清了账，挥一挥衣袖离开。这座写字楼困住过很多人，你用它换到了自由。全剧终。"},
+ "E_OPTIMIZED":{type:"die",title:"体 面 被 优 化",text:"你太透明、太软，或太容易被替代。某天 HR 约谈，一个「组织优化」把你温柔地请了出去。你倒在了第 __N__ 步。"},
+ "E_BLAME":{type:"die",title:"背 锅 离 职",text:"锅精准地落在了你头上，证据、录音、人证俱全——只是都不站在你这边。你背着不属于自己的锅，体面地递了辞呈。你倒在了第 __N__ 步。"},
+ "E_PURGE":{type:"die",title:"空 降 清 洗 出 局",text:"新领导到位，第一把火就烧向了「旧人」。你或是站错了边，或是显得「不服管」，成了那批被清洗的名字。你倒在了第 __N__ 步。"},
+ "E_ZHENGZU":{type:"die",title:"功 高 震 主 出 局",text:"你太亮了，亮到盖过了上面的人。当「尾大不掉」四个字落到你头上，再好的业绩也成了原罪。你倒在了第 __N__ 步。"},
+ "E_GUDU":{type:"die",title:"越 级 孤 立",text:"你要么越级打小报告，要么把谁都得罪光。等你想找人搭把手时，整层楼没人接你的话。你倒在了第 __N__ 步。"},
+ "E_LIANZUO":{type:"die",title:"站 错 队 连 坐",text:"你押的那一派输了。输家名单里，你的名字排在前头。站队从来不是选择题，是生死状。你倒在了第 __N__ 步。"}
+};
+
+const DTH={
+ "n1:1":"你当场把上家公司的底细倒了个干净。三天后，这些话被「整理」成你的「不稳定因素」档案。你倒在了第 __N__ 步。",
+ "n1:2":"你跟着林哥一起吐槽老板，没注意到他手机亮着录音。那段语音，后来成了你「负能量传染源」的罪证。你倒在了第 __N__ 步。",
+ "n2:1":"你在群里接了那句吐槽。第二天，群里的匿名号被人肉，你的发言成了「带头煽动」的证据。你倒在了第 __N__ 步。",
+ "n2:2":"你私聊那人想摸清是谁，却不知对方正是主管的小号。你「急于站队」的模样，被截图存进了档案。你倒在了第 __N__ 步。",
+ "n3:1":"你熬夜帮导师做完私活，自己的 onboarding 全荒了。转正时导师一句「主动性不够」，你成了那批被优化的。你倒在了第 __N__ 步。",
+ "n3:2":"你当众硬拒，话赶话把导师得罪透。新人第一天就「不服带教」，后面没人愿意带你。你倒在了第 __N__ 步。",
+ "n4:1":"你和前同事把现部门聊了个遍，转头他就把你的「情报」打包给了现主管。你成了「心不在焉」的那个人。你倒在了第 __N__ 步。",
+ "n4:2":"你张口就问「谁好谁坏、待遇咋样」，前同事转头就跟现同事说你「一来就搞事」。你倒在了第 __N__ 步。",
+ "n5:1":"你如实写了备孕和房贷。后来降本增效，「近期成本高、稳定性存疑」的标签悄悄贴上了你。你倒在了第 __N__ 步。",
+ "n5:2":"你写了「自媒体副业粉丝不少」。主管眉头一皱：这人心思不在本职。你倒在了第 __N__ 步。",
+ "n6:1":"你补了句「奖金悬」，第二天全组都知道你「觉得公司抠」。主管对你的印象，从那天开始打分。你倒在了第 __N__ 步。",
+ "n6:2":"你把阿杰的话转述给第三人，说「他让我别信主管」。话传回阿杰耳朵，你俩的梁子，全组都看在眼里。你倒在了第 __N__ 步。",
+ "n7:1":"你留到最晚发奋斗朋友圈，主管却记下了「效率存疑，靠时长凑」。你倒在了第 __N__ 步。",
+ "n7:2":"你当面戳穿表演加班，全组尴尬。从此团建、项目分配都「恰好」忘了你。你倒在了第 __N__ 步。",
+ "n8:1":"你填了工号和密码。那是 IT 部门的钓鱼演练，但你的账号已暴露在演练之外。你倒在了第 __N__ 步。",
+ "n8:2":"你在群里 @ 全员去填，带动一片人中招。事后追责，带头的你比填的人罚得还重。你倒在了第 __N__ 步。",
+ "n9:1":"你把密码发给了林哥。他用你账号「查的数据」，后来出现在他自己的汇报里。锅，自然算你的。你倒在了第 __N__ 步。",
+ "n9:2":"你当众抢白「账号归我管」，显得你在抢地盘。同事背后说你「新人就敢立威」。你倒在了第 __N__ 步。",
+ "n10:1":"你冲过去对质，要他们拿证据。「关系户还敢凶」的标签，比谣言传得还快。你倒在了第 __N__ 步。",
+ "n10:2":"你找主管「澄清」不是关系户，反倒显得你 sensitive。主管记下了「心态不稳」。你倒在了第 __N__ 步。",
+ "n11:1":"你一顿彩虹屁把主管夸上天。评委们交换了眼神：这人，怕是没货。你倒在了第 __N__ 步。",
+ "n11:2":"你直说「节奏乱、流程不清」，在周会上等于公开打主管脸。你倒在了第 __N__ 步。",
+ "n12:1":"你一口答应顶班，后来成了「反正你方便」的默认值。你的本职被顶班挤没了。你倒在了第 __N__ 步。",
+ "n12:2":"你当面拒得太难看，说「凭什么」。同事从此不找你帮忙，也不带你玩。你倒在了第 __N__ 步。",
+ "n13:1":"你报了精确数字和奖金结构。定了档之后你才发现，同岗的人都比你高——而你已没筹码谈。你倒在了第 __N__ 步。",
+ "n13:2":"你反手硬问主管「您开多少」，把球踢回去太生硬。主管笑了笑，记下了「不好管」。你倒在了第 __N__ 步。",
+ "n14:1":"你闷头开干怕显得不行。交付时主管说「这不是我要的」，你连申辩的边界都没留。你倒在了第 __N__ 步。",
+ "n14:2":"你擅自扩大范围做了很多「我以为」。结果核心没做好，额外全是浪费，责任算你越界。你倒在了第 __N__ 步。",
+ "n15:1":"你全接了棘手模块，出问题时它炸了，背锅位非你莫属。你倒在了第 __N__ 步。",
+ "n15:2":"你当众甩回给他，会议炸锅。「团队协作一塌糊涂」写进了你的评估。你倒在了第 __N__ 步。",
+ "n16:1":"你当场拍桌揭穿老王。会议室安静后，所有人记住的是「这人难合作」。你倒在了第 __N__ 步。",
+ "n16:2":"你一忍再忍，功劳全成了老王的。转正材料上，你的名字轻得像没来过。你倒在了第 __N__ 步。",
+ "n17:1":"你把团队成果全写成自己的。交叉核查时一戳就破，「诚信」一栏直接红了。你倒在了第 __N__ 步。",
+ "n17:2":"你写得太谦虚，像没干啥。评委按你写的打分，你差了几分。你倒在了第 __N__ 步。",
+ "n18:1":"你直接发邮件给 CEO 邀功。直属主管被绕开，从此你的每一份报告都要过他的「复核」。你倒在了第 __N__ 步。",
+ "n18:2":"你私下跟同事散播「账目有问题」。谣言传到审计耳里，你成了造谣的那个。你倒在了第 __N__ 步。",
+ "n19:1":"你酒过三巡透底了客户名单。下周，那批客户接到了小张的「问候」。你倒在了第 __N__ 步。",
+ "n19:2":"你当面点破「你在套我话」。小张讪讪，但从此你在同期里成了「不好接近」的那个。你倒在了第 __N__ 步。",
+ "n20:1":"你找主管吵「凭什么没我」，被记「计较、格局小」。下次署名，依然没你。你倒在了第 __N__ 步。",
+ "n20:2":"你假装不在意从此划水。没有署名的事，也再没你的份。你倒在了第 __N__ 步。",
+ "n21:1":"你顺势抱住了主管的大腿。三个月后主管调走，你成了「旧人」，新领导一眼就挑了出来。你倒在了第 __N__ 步。",
+ "n21:2":"你反呛「我凭什么跟你」，把主管得罪死。后面所有好机会，都绕开了你。你倒在了第 __N__ 步。",
+ "n22:1":"你四处打探名单、焦虑到出错。真裁员没轮到你，你先把自己卷出了差错。你倒在了第 __N__ 步。",
+ "n22:2":"你转发「要裁就裁我」的狠话。HR 截图留存，「稳定性风险」四个字有了着落。你倒在了第 __N__ 步。",
+ "n23:1":"你干等同事还资料，答辩当天缺了核心论据。评委以为你「准备不足」。你倒在了第 __N__ 步。",
+ "n23:2":"你冲去他工位翻箱倒柜，闹上 HR。「协作问题」的定性，比资料没还更致命。你倒在了第 __N__ 步。",
+ "n24:1":"你背「我太追求完美」。评委交换眼神：套路，下一个。你倒在了第 __N__ 步。",
+ "n24:2":"你老实说「我抗压差」。考官在评估表上轻轻画了个圈。你倒在了第 __N__ 步。",
+ "n25:1":"观察期你开始摸鱼，表现滑坡。主管想「再看看」，一看就看到了你的松懈。你倒在了第 __N__ 步。",
+ "n25:2":"你质问「凭什么还观察」。主管笑了：『就凭这个态度。』你倒在了第 __N__ 步。",
+ "n26:1":"你四处宣告「我转正了」，招来一片眼红。接下来的项目，没人愿意跟你搭档。你倒在了第 __N__ 步。",
+ "n26:2":"你觉得稳了开始挑活。主管看在眼里：『翘尾巴了』。你倒在了第 __N__ 步。",
+ "n27:1":"你一口包揽说「没问题」。项目一暴雷，这句就成了你「主动认领全责」的证词。你倒在了第 __N__ 步。",
+ "n27:2":"你为显得靠谱承诺了做不到的 deadline。deadline 塌了，信用先塌。你倒在了第 __N__ 步。",
+ "n28:1":"你先改了再说，流程没补。事后追责，改出来的坑算你的，合作方的口头承诺不算数。你倒在了第 __N__ 步。",
+ "n28:2":"你直接拒绝合作方，把关系搞僵。项目还没暴雷，先被内部判「不会做人」。你倒在了第 __N__ 步。",
+ "n29:1":"你慌乱中咬出合作方和同事。风向一转，咬人的你成了「最先出卖队友的人」，两边都不容你。你倒在了第 __N__ 步。",
+ "n29:2":"你当场沉默，等于默认背锅。复盘报告上，责任人一栏是你的名字。你倒在了第 __N__ 步。",
+ "n30:1":"你收了「好处」认了锅。从此那人被你捏住软肋，三年里你替他背了所有的雷。你倒在了第 __N__ 步。",
+ "n30:2":"你把私聊录音发出去自证，却被定性「录音构陷同事」。清白没洗成，倒先成了告密者。你倒在了第 __N__ 步。",
+ "n31:1":"你第一天递投名状表忠心。新领导记下「旧人里的自己人」，清洗时你成了他手里最先弃的棋子。你倒在了第 __N__ 步。",
+ "n31:2":"你当面质疑新领导「这套行不通」。第一把火，烧的就是你。你倒在了第 __N__ 步。",
+ "n32:1":"你把锅全甩给同事，显得自己无辜。新领导看穿了：这人，推卸责任第一名。你倒在了第 __N__ 步。",
+ "n32:2":"你把功劳全揽自己身上，显得没团队。新领导要的是能带兵的，不是独狼。你倒在了第 __N__ 步。",
+ "n33:1":"你押了 A 派赌一把。A 派输了，名单上你的名字排在前头。你倒在了第 __N__ 步。",
+ "n33:2":"你两边都答应「我跟您」，成了墙头草。两派都当你是隐患，真到分派时谁也不要你。你倒在了第 __N__ 步。",
+ "n34:1":"你忍到会后写匿名小作文举报他。字迹和语气被人认出，你成了「背后捅刀」的那个人。你倒在了第 __N__ 步。",
+ "n34:2":"你直接拍桌骂人被请出会议室。抢回的功没人记得，「情绪化」三个字记了一年。你倒在了第 __N__ 步。",
+ "n35:1":"你真去告密，却被对家反咬「诬陷」。两头不讨好，你在两派眼里都成了不可信的人。你倒在了第 __N__ 步。",
+ "n35:2":"你把「朋友」的提议卖给对家两头套。两头都发现被你耍，一起把你踢出局。你倒在了第 __N__ 步。",
+ "n36:1":"你主动献证据邀功，成了领导的打手。用完了，你这把刀也该收了。你倒在了第 __N__ 步。",
+ "n36:2":"你拿证据要挟对家换好处，反被录下。录像一交，你成了敲诈的那方。你倒在了第 __N__ 步。",
+ "n37:1":"你疯狂表演加班刷存在感。末位淘汰看的是结果，你的结果最空。你倒在了第 __N__ 步。",
+ "n37:2":"你公开反对制度，被记「不服管」。新领导的清理名单，第一项就是不服管的。你倒在了第 __N__ 步。",
+ "n38:1":"你慌乱中删了聊天记录「怕说不清」。调查时这成了「销毁证据」，跳进黄河。你倒在了第 __N__ 步。",
+ "n38:2":"你反手匿名举报对方，互相撕。调查组两手一摊：这两个，都不干净。你倒在了第 __N__ 步。",
+ "n39:1":"你提前押注赢家，输了被清算。赢家上位第一件事，就是把「墙头草旧账」清一遍。你倒在了第 __N__ 步。",
+ "n39:2":"你谁都不得罪等于谁都得罪，被两边一起边缘化。合并后的新部门，你的工位在最角落。你倒在了第 __N__ 步。",
+ "n40:1":"你等主管主动推荐，结果名额给了『会申报』的人。你倒在了第 __N__ 步。",
+ "n40:2":"你四处放话「我肯定能升」。树大招风，评委先看你顺不顺眼。你倒在了第 __N__ 步。",
+ "n41:1":"你顺杆爬说「年轻有体力」，贬低了在座资深评委。你倒在了第 __N__ 步。",
+ "n41:2":"你支支吾吾没想过这题。评委记下「缺乏职业思考」。你倒在了第 __N__ 步。",
+ "n42:1":"你拿口头 offer 逼现主管，被反将一军：『要走现在走』。你走了，项目全收回，口碑也塌了。你倒在了第 __N__ 步。",
+ "n42:2":"你直接签字入职竞品。现司以「竞业加项目归属」为由，把你经手的项目全收回，还留了话柄。你倒在了第 __N__ 步。",
+ "n43:1":"你主动「自愿离职」换补偿，等于认输。优化名单上你的名字，主管写得很顺手。你倒在了第 __N__ 步。",
+ "n43:2":"你越级告主管，被大领导当成「不稳定因素」。优化名单，先列不安分的。你倒在了第 __N__ 步。",
+ "n44:1":"你趁机告了直属主管的状。大领导记下「这人，会咬人」。你倒在了第 __N__ 步。",
+ "n44:2":"你表态跟大领导，押错宝。大领导走后，你成了被清洗的那个。你倒在了第 __N__ 步。",
+ "n45:1":"你继续高调，觉得公司离不开你。「尾大不掉」四个字下来，再好的业绩也是原罪。你倒在了第 __N__ 步。",
+ "n45:2":"你当面顶撞主管「没我早黄了」。主管笑了笑，开始「调整」你的权限。你倒在了第 __N__ 步。",
+ "n46:1":"你为期权赌上全部，三年不敢动。锁死的同时，你也错过了所有外面的机会。你倒在了第 __N__ 步。",
+ "n46:2":"你当众拒签还嘲讽「画饼」。高层记下「不识抬举」。你倒在了第 __N__ 步。",
+ "n47:1":"你收信夜半去见那人，留下结党物证。名单公布，你先因「拉帮结派」被拿下。你倒在了第 __N__ 步。",
+ "n47:2":"你当众撕信骂人，把递信者得罪，自己也失了分。本该稳的票，飘了。你倒在了第 __N__ 步。",
+ "n48:1":"你争肥缺，显得贪。授职的本意是任能，你先露了欲。你倒在了第 __N__ 步。",
+ "n48:2":"你推辞太过，说「我不堪重任」。清要之职本该你受，你偏推，反倒落了不恭。你倒在了第 __N__ 步。",
+ "n48b:1":"你收下密信夜半去见其人，留下结党物证。晋升名单上你的名字，先因「拉帮结派」被划掉。你倒在了第 __N__ 步。",
+ "n48b:2":"你当众撕信斥小人，反被寻了由头清算。名单前夜的这一出，成了你「不识大体」的注脚。你倒在了第 __N__ 步。"
+};
+
+function save(st){try{st.step=step;st.prevV=prevV;st.volStart=volStart;st.volStep=volStep;st.pending=pending;localStorage.setItem(SAVE_KEY,JSON.stringify(st));}catch(e){}}
+function clearSave(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
+function restore(){let s=null;try{s=JSON.parse(localStorage.getItem(SAVE_KEY));}catch(e){}
+ if(!s||s.screen==="cover")return;
+ step=s.step;prevV=s.prevV;volStart=s.volStart;volStep=s.volStep;pending=s.pending;
+ updateEp();renderDots();
+ if(s.screen==="scene")paintScene(s.node);
+ else if(s.screen==="chapter")showChapter(s.node);
+ else if(s.screen==="end")showEnd(s.endId,s.key);}
+function show(e){e.classList.remove("hide");} function hide(e){e.classList.add("hide");}
+function renderDots(){const d=$("dots");d.innerHTML="";VOLS.forEach((_,k)=>{if(k<1)return;const i=document.createElement("i");if(k<=prevV)i.className="on";d.appendChild(i);});}
+function updateEp(){const total=Object.keys(NODES).length;$("ep").textContent=`第 ${step} 步 / 共 ${total} 幕`;$("bar").style.width=(step/total*100)+"%";}
+function toast(msg){const t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),1900);}
+function go(id){
+ const n=NODES[id];
+ if(n.v!==prevV){ prevV=n.v; volStart=id; volStep=step+1; pending=id; showChapter(id); return; }
+ step++; updateEp(); renderDots(); paintScene(id);
+}
+function showChapter(id){const n=NODES[id];const v=VOLS[n.v];
+ $("cVol").textContent=v[0];$("cTitle").textContent=v[1];$("cIntro").textContent=v[2];
+ hide(cover);hide(scene);hide(end);show(chapter);renderDots();save({screen:"chapter",node:id});}
+function paintScene(id){const n=NODES[id];
+ const v=VOLS[n.v];$("where").textContent=`${v[0]} · ${n.where}`;$("story").textContent=n.story;
+ const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+ const box=$("opts");box.innerHTML="";shuf(n.o.map((op,i)=>({op,i}))).forEach(({op,i})=>{const b=document.createElement("button");b.className="opt";b.textContent=op.t;
+   b.onclick=()=>op.end?showEnd(op.end,id+":"+i):go(op.go);box.appendChild(b);});
+ hide(cover);hide(chapter);hide(end);show(scene);window.scrollTo(0,0);
+ save({screen:"scene",node:id});}
+function showEnd(id,key){const e=END[id];const txt=((key&&DTH[key])||e.text).replace("__N__",step);
+ end.className="end "+e.type;$("endTag").textContent=e.type==="die"?"大 结 局":"结 局";
+ $("endBig").textContent=e.title;$("endReason").textContent=txt;
+ $("endShare").textContent=e.type==="die"?`📌 你只活到了第 ${step} 步…截个图，看看朋友能走几步～`:`📌 你走到了第 ${step} 步，结局「${e.title}」～截个图炫耀！`;
+ hide(cover);hide(scene);hide(chapter);show(end);window.scrollTo(0,0);save({screen:"end",endId:id,key:key});}
+$("startBtn").onclick=()=>{clearSave();step=0;prevV=0;volStart="n1";volStep=1;hide(cover);go("n1");};
+$("cGo").onclick=()=>{go(pending);};
+$("againBtn").onclick=()=>{clearSave();step=0;prevV=0;volStart="n1";volStep=1;hide(end);hide(chapter);show(cover);};
+$("rechBtn").onclick=()=>{step=volStep-1;go(volStart);};
+restore();
+</script>
+</body>
+</html>
